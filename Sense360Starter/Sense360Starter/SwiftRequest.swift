@@ -67,7 +67,7 @@ public class SwiftRequest {
             var resp = response as! NSHTTPURLResponse?
             
             if( err == nil) {
-                if(response.MIMEType == "text/html") {
+                if(response.MIMEType == "text/html" || response.MIMEType == "application/xml") {
                     var bodyStr = NSString(data: body, encoding:NSUTF8StringEncoding)
                     return callback!(err: err, response: resp, body: bodyStr)
                 } else if(response.MIMEType == "application/json") {

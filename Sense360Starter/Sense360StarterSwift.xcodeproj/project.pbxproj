@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22335A311B77156800564736 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22335A301B77156800564736 /* Phone.swift */; };
-		22335A3F1B77178100564736 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22335A3B1B77178100564736 /* libcrypto.a */; };
-		22335A401B77178100564736 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22335A3C1B77178100564736 /* libssl.a */; };
-		22335A411B77178100564736 /* libTwilioClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22335A3D1B77178100564736 /* libTwilioClient.a */; };
+		1C31A4A01B7749880013F355 /* Twilio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C31A49F1B7749880013F355 /* Twilio.swift */; };
 		22335A441B7718BC00564736 /* SwiftRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22335A431B7718BC00564736 /* SwiftRequest.swift */; };
 		22335A461B7718E300564736 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22335A451B7718E300564736 /* AVFoundation.framework */; };
 		22335A481B7718EF00564736 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22335A471B7718EF00564736 /* CFNetwork.framework */; };
@@ -48,17 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22335A301B77156800564736 /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Phone.swift; path = ../../../../Downloads/TwilioPackage/Phone.swift; sourceTree = "<group>"; };
+		1C31A49F1B7749880013F355 /* Twilio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twilio.swift; sourceTree = "<group>"; };
 		22335A321B7716D700564736 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		22335A351B77178100564736 /* TCConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCConnection.h; sourceTree = "<group>"; };
-		22335A361B77178100564736 /* TCConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCConnectionDelegate.h; sourceTree = "<group>"; };
-		22335A371B77178100564736 /* TCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDevice.h; sourceTree = "<group>"; };
-		22335A381B77178100564736 /* TCDeviceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDeviceDelegate.h; sourceTree = "<group>"; };
-		22335A391B77178100564736 /* TCPresenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPresenceEvent.h; sourceTree = "<group>"; };
-		22335A3A1B77178100564736 /* TwilioClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwilioClient.h; sourceTree = "<group>"; };
-		22335A3B1B77178100564736 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		22335A3C1B77178100564736 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		22335A3D1B77178100564736 /* libTwilioClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTwilioClient.a; sourceTree = "<group>"; };
 		22335A431B7718BC00564736 /* SwiftRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequest.swift; sourceTree = "<group>"; };
 		22335A451B7718E300564736 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		22335A471B7718EF00564736 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -92,11 +80,8 @@
 				22335A461B7718E300564736 /* AVFoundation.framework in Frameworks */,
 				96BF38DE1B3CB66200277004 /* CoreMotion.framework in Frameworks */,
 				33C0EF021B3892FA00AB5985 /* libz.dylib in Frameworks */,
-				22335A401B77178100564736 /* libssl.a in Frameworks */,
-				22335A3F1B77178100564736 /* libcrypto.a in Frameworks */,
 				965EA2AF1B4DDF9D0058C7C1 /* SenseSdk.framework in Frameworks */,
 				33C0EF001B3892F100AB5985 /* SystemConfiguration.framework in Frameworks */,
-				22335A411B77178100564736 /* libTwilioClient.a in Frameworks */,
 				33C0EEFE1B3892EB00AB5985 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,31 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		22335A331B77178100564736 /* TwilioPackage */ = {
-			isa = PBXGroup;
-			children = (
-				22335A341B77178100564736 /* Headers */,
-				22335A3B1B77178100564736 /* libcrypto.a */,
-				22335A3C1B77178100564736 /* libssl.a */,
-				22335A3D1B77178100564736 /* libTwilioClient.a */,
-			);
-			name = TwilioPackage;
-			path = ../TwilioPackage;
-			sourceTree = "<group>";
-		};
-		22335A341B77178100564736 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				22335A351B77178100564736 /* TCConnection.h */,
-				22335A361B77178100564736 /* TCConnectionDelegate.h */,
-				22335A371B77178100564736 /* TCDevice.h */,
-				22335A381B77178100564736 /* TCDeviceDelegate.h */,
-				22335A391B77178100564736 /* TCPresenceEvent.h */,
-				22335A3A1B77178100564736 /* TwilioClient.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		33C0EECD1B3892B400AB5985 = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +116,8 @@
 		33C0EED81B3892B400AB5985 /* Sense360Starter */ = {
 			isa = PBXGroup;
 			children = (
-				22335A331B77178100564736 /* TwilioPackage */,
-				22335A301B77156800564736 /* Phone.swift */,
+				1C31A49F1B7749880013F355 /* Twilio.swift */,
+				22335A431B7718BC00564736 /* SwiftRequest.swift */,
 				332BEBF31B7577A00092ACA6 /* GPXFiles */,
 				33C0EEDB1B3892B400AB5985 /* AppDelegate.swift */,
 				33C0EEDD1B3892B400AB5985 /* ViewController.swift */,
@@ -170,7 +130,6 @@
 				33C0EF101B38A47800AB5985 /* EnteredGeofenceDetector.swift */,
 				33CFEE6E1B3CB9F40079E832 /* NotificationSender.swift */,
 				22335A321B7716D700564736 /* BridgingHeader.h */,
-				22335A431B7718BC00564736 /* SwiftRequest.swift */,
 			);
 			path = Sense360Starter;
 			sourceTree = "<group>";
@@ -283,9 +242,9 @@
 				33C0EF0F1B389F6C00AB5985 /* EnteredHomeDetector.swift in Sources */,
 				22335A441B7718BC00564736 /* SwiftRequest.swift in Sources */,
 				33CFEE6F1B3CB9F40079E832 /* NotificationSender.swift in Sources */,
-				22335A311B77156800564736 /* Phone.swift in Sources */,
 				33C0EEDE1B3892B400AB5985 /* ViewController.swift in Sources */,
 				33C0EEDC1B3892B400AB5985 /* AppDelegate.swift in Sources */,
+				1C31A4A01B7749880013F355 /* Twilio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

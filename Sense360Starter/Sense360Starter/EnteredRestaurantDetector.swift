@@ -61,10 +61,12 @@ class EnteredRestaurantDetector: RecipeFiredDelegate {
             NSLog("Error!: \(errorPointer.error.message)")
         }
     }
-    
+
     func abc() {
-        let p = Phone()
-        p.connectWithParams(params: ["to":"13109386046", "from":"15627408006", "url":"http://brodan.biz/call.xml"])
+        let p = Twilio()
+        p.sendTextMessage(accountSid: "ACa210095e58b0c83dcb9ac1cba3d9946e", authToken: "62474bd1883e89f50a25236a36e3b665",
+            to: "+1ABCDEFGHIF", from: "+14242924032", body: "Hello World")
+
     }
     
     
