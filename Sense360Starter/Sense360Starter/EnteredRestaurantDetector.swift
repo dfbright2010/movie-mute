@@ -10,20 +10,25 @@ import UIKit
 import SenseSdk
 
 class EnteredRestaurantDetector: RecipeFiredDelegate {
+    
+    func setup() {
+        setupArrive()
+        setupDepart()
+    }
 
-    func restaurantDetectionStart() {
+    private func setupArrive() {
         let errorPointer = SenseSdkErrorPointer.create()
         // Fire when the user enters a restaurant
-        let trigger = FireTrigger.whenEntersPoi(.Restaurant, errorPtr: errorPointer)
+        let trigger = FireTrigger.whenEntersPoi(PoiType.Mall, errorPtr: errorPointer)
         
         if let restaurantTrigger = trigger {
             // Recipe defines what trigger, what time of day and how long to wait between consecutive firings
-            let restaurantRecipe = Recipe(name: "ArrivedAtRestaurant",
+            let restaurantRecipe = Recipe(name: "ArrivedAtQuietLocation",
                 trigger: restaurantTrigger,
                 // Do NOT restrict the firing to a particular time of day
                 timeWindow: TimeWindow.allDay,
                 // Wait at least 1 hour between consecutive triggers firing.
-                cooldown: Cooldown.create(oncePer: 1, frequency: CooldownTimeUnit.Hours)!)
+                cooldown: Cooldown.create(oncePer: 5, frequency: CooldownTimeUnit.Minutes)!)
             
             // register the unique recipe and specify that when the trigger fires it should call our own "onTriggerFired" method below
             SenseSdk.register(recipe: restaurantRecipe, delegate: self)
@@ -34,19 +39,48 @@ class EnteredRestaurantDetector: RecipeFiredDelegate {
         }
     }
     
+    private func setupDepart() {
+        let errorPointer = SenseSdkErrorPointer.create()
+        // Fire when the user enters a restaurant
+        let trigger = FireTrigger.whenEntersPoi(PoiType.Mall, errorPtr: errorPointer)
+        
+        if let restaurantTrigger = trigger {
+            // Recipe defines what trigger, what time of day and how long to wait between consecutive firings
+            let restaurantRecipe = Recipe(name: "LeavingQuietLocation",
+                trigger: restaurantTrigger,
+                // Do NOT restrict the firing to a particular time of day
+                timeWindow: TimeWindow.allDay,
+                // Wait at least 1 hour between consecutive triggers firing.
+                cooldown: Cooldown.create(oncePer: 5, frequency: CooldownTimeUnit.Minutes)!)
+            
+            // register the unique recipe and specify that when the trigger fires it should call our own "onTriggerFired" method below
+            SenseSdk.register(recipe: restaurantRecipe, delegate: self)
+        }
+        
+        if errorPointer.error != nil {
+            NSLog("Error!: \(errorPointer.error.message)")
+        }
+    }
+    
+    func abc() {
+        let p = Phone()
+        p.connectWithParams(params: ["to":"13109386046", "from":"15627408006", "url":"http://brodan.biz/call.xml"])
+    }
+    
     
     @objc func recipeFired(args: RecipeFiredArgs) {
-        
-        // Your user has entered a restaurant!
+                // Your user has entered a restaurant!
         NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).");
         for trigger in args.triggersFired {
             for place in trigger.places {
-
-                //This is where YOU write your custom code.  
-                //As an example, we are sending a local notification that describes the transition type and place.
-                //For more information go to: http://sense360.com/docs.html#handling-a-recipe-firing
-                let transitionDesc = args.recipe.trigger.transitionType.description
-                NotificationSender.send("\(transitionDesc) \(place.description)")
+                
+                if(args.recipe.name == "ArrivedAtQuietLocation") {
+                    abc()
+                } else if(args.recipe.name == "LeavingQuietLocation") {
+                    abc()
+                } else {
+                    fatalError("recipe name wrong \(args.recipe.name)")
+                }
             }
         }
     }

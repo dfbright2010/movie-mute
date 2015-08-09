@@ -16,16 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Replace with your app key provided by Sense360
-        SenseSdk.enableSdkWithKey("app_key_goes_here")
+        SenseSdk.enableSdkWithKey("")
         
         // Create the Restaurant POI Type
-        EnteredRestaurantDetector().restaurantDetectionStart()
-        
-        // Create the Home Personal Place Type
-        EnteredHomeDetector().homeDetectionStart()
-        
-        // Create a custom geofence
-        EnteredGeofenceDetector().geofenceDetectionStart()
+        EnteredRestaurantDetector().setup()
         
         
         //...Any other code that should run on launch...//

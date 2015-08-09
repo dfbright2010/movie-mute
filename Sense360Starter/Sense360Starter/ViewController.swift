@@ -29,12 +29,12 @@ class ViewController: UIViewController {
 
     @IBAction func triggerRestaurant(sender: UIButton) {
         // Test info
-        let place = PoiPlace(latitude: 34.111, longitude: -118.111, radius: 50, name: "Big Restaurant", id: "id1", types: [.Restaurant])
+        let place = PoiPlace(latitude: 34.111, longitude: -118.111, radius: 50, name: "Theater", id: "id1", types: [.Restaurant])
         
         let errorPointer = SenseSdkErrorPointer.create()
         // This method should only be used for testing
         SenseSdkTestUtility.fireTrigger(
-            fromRecipe: "ArrivedAtRestaurant",
+            fromRecipe: "LeavingQuietLocation",
             confidenceLevel: ConfidenceLevel.Medium,
             places: [place],
             errorPtr: errorPointer
